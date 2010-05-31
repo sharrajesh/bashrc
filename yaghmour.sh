@@ -1,5 +1,4 @@
 #!/bin/sh
-
 #
 # first get these files
 #
@@ -17,7 +16,7 @@
 # build-boot-gcc
 # build-glibc
 #
-function setenv_common {
+function setenv_yagh {
     export PROJECT=daq-module
     export PRJROOT=$ext_dir/control-project/$PROJECT
     export TARGET=arm-linux
@@ -25,11 +24,13 @@ function setenv_common {
     export TARGET_PREFIX=$PREFIX/$TARGET
 }
 
-function make_le_workspace {
-    cd $PRJROOT
-    mkdir bootldr build-tools debug doc images kernel project rootfs sysapps tmp tools tools/$TARGET tools
-    cd build-tools
-    mkdir build-binutils build-boot-gcc build-glibc build-gcc
+function yagh_dirs {
+    if [ -d $PRJROOT/rootfs ]; then
+	    echo $PRJROOT/rootfs already Directory exists
+        return
+    fi 
+    mkdir -pv $PRJROOT/{bootldr build-tools/{build-binutils build-boot-gcc build-glibc build-gcc} \
+     debug doc images kernel project rootfs sysapps tmp tools tools/{$TARGET}}
 }
 
 # linux from scratch
@@ -43,7 +44,7 @@ function make_le_workspace {
 # make install
 #
 function setenv_binutils {
-    setenv_common
+    setenv_yagh
     export RAJBDIR=$PRJROOT/build-tools/build-binutils
     cd $RAJBDIR
 }
@@ -64,11 +65,14 @@ function setenv_binutils {
 # cp -rv rajdest/include/* $TARGET_PREFIX/include
 #
 function setenv_kernel {
-    setenv_common
+    setenv_yagh
     export ARCH=arm
+    
     #export CROSS_COMPILE=${TARGET}-
+    
     export PATH=$PREFIX/bin:$PATH
     export RAJKDIR=$PRJROOT/kernel
+    
     cd $RAJKDIR
 }
 
@@ -105,7 +109,7 @@ function setenv_kernel {
 # sed "s/libgcc/&_eh/" --- will convert the string libgcc.a to libgcc_eh.a
 #
 function setenv_bootgcc {
-    setenv_common
+    setenv_yagh
     export RAJGDIR=$PRJROOT/build-tools/build-boot-gcc
     cd $RAJGDIR
 }
@@ -128,7 +132,7 @@ function setenv_bootgcc {
 # now gedit $SPECS and replace /tools with value of $PREFIX
 # 
 function setenv_glibc {
-    setenv_common
+    setenv_yagh
     export PATH=$PREFIX/bin:$PATH
     #export CC=${TARGET}-gcc
     #export LD_LIBRARY_PATH=$PREFIX/mpc/lib:$PREFIX/mpfr/lib:$PREFIX/gmp/lib:$LD_LIBRARY_PATH
@@ -141,7 +145,7 @@ function setenv_glibc {
 #
 # sh ./Configure -des -Dusecrosscompile -Dtargethost=rajesh_arm_board -Dtargetdir=/usr/local/perl -Dtargetuser=root -Dtargetarch=$TARGET Dcc=arm-linux-gcc -Dusrinc=$TARGET_PREFIX/include/linux -Dincpth=$TARGET_PREFIX/include/linux -Dlibpth=$TARGET_PREFIX/lib 
 function setenv_perl {
-    setenv_common
+    setenv_yagh
     export RAJPDIR=$PRJROOT/sysapps/perl-5.12.1
     cd $RAJPDIR
 }

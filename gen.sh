@@ -86,3 +86,20 @@ function cppdbg {
     ddd --debugger /usr/bin/gdb &
 }
 
+function test_if {
+    if [ -d $directory ]; then
+	    echo "Directory exists"
+    else 
+	    echo "Directory does not exists"
+    fi 
+    if [ "$1" = "" ]; then
+        echo cannot be empty
+        return
+    elif [ "$1" = "raj" ]; then
+        echo first is raj
+        return
+    else
+        echo neither empty nor raj $1
+    fi
+}
+
