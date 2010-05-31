@@ -29,8 +29,7 @@ function yagh_dirs {
 	    echo $PRJROOT/rootfs already Directory exists
         return
     fi 
-    mkdir -pv $PRJROOT/{bootldr build-tools/{build-binutils build-boot-gcc build-glibc build-gcc} \
-     debug doc images kernel project rootfs sysapps tmp tools tools/{$TARGET}}
+    mkdir -pv $PRJROOT/{bootldr,build-tools/{build-binutils,build-boot-gcc,build-glibc,build-gcc},debug,doc,images,kernel,project,rootfs,sysapps,tmp,tools/{$TARGET,}}
 }
 
 # linux from scratch
