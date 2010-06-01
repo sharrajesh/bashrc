@@ -19,12 +19,27 @@
 function setenv_yagh {
     export PROJECT=daq-module
     export PRJROOT=$ext_dir/control-project/$PROJECT
-    
+
+    #pick either yagh_native or yagh_cs
+    yagh_cs
+}
+
+# native
+function yagh_native {
     export TARGET=arm-linux
-    export PREFIX=$PRJROOT/tools
+    export PREFIX=$PRJROOT/tools/
     export TARGET_PREFIX=$PREFIX/$TARGET
 
     export PATH=$PREFIX/bin;$PATH
+}
+
+# code sourcery
+function yagh_cs {
+    export TARGET=arm-none-eabi
+    export PREFIX=$PRJROOT/tools/arm-2010q1
+    export TARGET_PREFIX=$PREFIX/$TARGET
+
+    export PATH=$PREFIX/bin:$PATH
 }
 
 function yagh_dirs {
