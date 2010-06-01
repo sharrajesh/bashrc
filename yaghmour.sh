@@ -29,8 +29,8 @@ function yagh_native {
     export TARGET=arm-linux
     export PREFIX=$PRJROOT/tools/
     export TARGET_PREFIX=$PREFIX/$TARGET
-
-    export PATH=$PREFIX/bin;$PATH
+    
+    export PATH=$PREFIX/bin:$PATH
 }
 
 # code sourcery
@@ -38,6 +38,8 @@ function yagh_cs {
     export TARGET=arm-none-eabi
     export PREFIX=$PRJROOT/tools/arm-2010q1
     export TARGET_PREFIX=$PREFIX/$TARGET
+
+    export CROSS_COMPILE=${TARGET}-
 
     export PATH=$PREFIX/bin:$PATH
 }
