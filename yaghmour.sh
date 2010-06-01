@@ -34,14 +34,21 @@ function yagh_native {
 }
 
 # code sourcery
+#
+# alias crossmake='make ARCH=arm '
+#
 function yagh_cs {
-    export TARGET=arm-none-eabi
-    export PREFIX=$PRJROOT/tools/arm-2010q1
-    export TARGET_PREFIX=$PREFIX/$TARGET
+    export YCS_TGT=arm-none-eabi
+    
+    #export YCS_PREFIX=$PRJROOT/tools/arm-2010q1
+    export YCS_PREFIX=$PRJROOT/tools/arm-2007q1
+    export YCS_TARGET_PREFIX=$YCS_PREFIX/$YCS_TGT
 
-    export CROSS_COMPILE=${TARGET}-
-
-    export PATH=$PREFIX/bin:$PATH
+    export CROSS_COMPILE=${YCS_TGT}-
+    
+    export PATH=$YCS_PREFIX/bin:$PATH
+    
+    alias crossmake='make ARCH=arm CROSS_COMPILE=${YCS_TGT}- '
 }
 
 function yagh_dirs {
