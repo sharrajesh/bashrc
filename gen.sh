@@ -14,6 +14,7 @@ function rajeshhelp {
     echo cdext    -- to change directory to driver build  directory
     echo refresh  -- to reload this bashfile
     echo module_helper  modname pathtomodule -- info for add-symbol-file
+    echo diskusage -- to show the diskusage
     echo ssh2test -- to ssh to the test machine to run module_helper
     echo list_tainted - list all the tainted modules
     echo

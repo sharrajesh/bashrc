@@ -19,9 +19,12 @@
 function setenv_yagh {
     export PROJECT=daq-module
     export PRJROOT=$ext_dir/control-project/$PROJECT
+    
     export TARGET=arm-linux
     export PREFIX=$PRJROOT/tools
     export TARGET_PREFIX=$PREFIX/$TARGET
+
+    export PATH=$PREFIX/bin;$PATH
 }
 
 function yagh_dirs {
