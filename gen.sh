@@ -64,7 +64,7 @@ function module_helper  {
 }
 
 function ssh2test {
-    ssh root@shiven.homelinux.org
+    ssh root@homelinux.org
 }
 
 function list_tainted {
@@ -76,6 +76,29 @@ function list_tainted {
 
 function diskusage {
     du -h --max-depth=1
+}
+
+function diskinfo {
+	echo -------------------------------
+    sudo fdisk -l
+	echo -------------------------------
+	df
+	echo -------------------------------
+	mount
+}
+
+#
+# to clean dmesg -c
+#
+function systrace {
+	dmesg
+}
+
+#
+# to search for a string in source files only
+#
+function find_in_src {
+	find . -type f -name *.cpp -o -name *.h -o -name *.c | xargs grep $1
 }
 
 #
