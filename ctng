@@ -1,0 +1,28 @@
+#!/bin/sh
+# 
+# this work is derived from crosstool-NG
+#
+
+function setenv_ctng {
+    set +h
+    export HOME=$user_raj/Desktop
+    export PATH=$CLFS/cross-tools/bin:$PATH
+    export LC_ALL=POSIX
+    
+    export BUILD=aapcs-linux	
+
+    export CLFS_HOST="${MACHTYPE}"
+    export CLFS_TARGET="arm-unknown-linux-uclibc"
+    export CLFS_ARCH=$(echo ${CLFS_TARGET} | sed -e 's/-.*//' -e 's/arm.*/arm/g')
+    
+    export CLFS_ENDIAN=$(echo ${CLFS_ARCH} | sed -e 's/armeb/BIG/' -e 's/arm/LITTLE/')
+    
+    if [ "${CLFS_ENDIAN}" = "LITTLE" ]; then
+      export CLFS_NOT_ENDIAN=BIG
+    else
+      export CLFS_NOT_ENDIAN=LITTLE
+    fi
+    
+    #cd $LFS/sources
+}
+
