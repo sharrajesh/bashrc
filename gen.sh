@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export user_raj=lroot
+# make sure user_raj is set in your bashrc
 export ext_dir=/home/$user_raj/Desktop/ext
 export bashrc_dir=/home/$user_raj/Desktop/bashrc
 
