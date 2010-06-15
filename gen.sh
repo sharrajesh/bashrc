@@ -133,6 +133,7 @@ function test_if {
     fi
 }
 
+# sudo apt-get install mencoder
 function ogv2avi {
 	mencoder $1 -o $1.avi -oac mp3lame -lameopts fast:preset=standard -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=4000
 }
