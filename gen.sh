@@ -139,3 +139,11 @@ function ogv2avi {
 	mencoder $1 -o $1.avi -oac mp3lame -lameopts fast:preset=standard -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=4000
 }
 export -f ogv2avi
+
+#
+# for every ogv file found invoke ogv2avi function on it
+function conv2avi {
+	rm *.ogv.avi
+	find ./ -name "*.ogv" -exec echo ogv2avi {} \; | bash
+}
+
