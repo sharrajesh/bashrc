@@ -135,8 +135,13 @@ function test_if {
 
 # sudo apt-get install gtk-recordmydesktop
 # sudo apt-get install mencoder
+# using vcodec=wmv2 rather than mpeg4 which is more likely to be there on xp machines
 function ogv2avi {
-	mencoder $1 -o $1.avi -oac mp3lame -lameopts fast:preset=standard -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=4000
+	#mencoder $1 -o $1.avi -oac mp3lame -lameopts fast:preset=standard -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=4000
+	mencoder $1 -o $1.avi -oac mp3lame -lameopts fast:preset=standard -ovc lavc -lavcopts vcodec=wmv2:vbitrate=4000
+}
+function 3gp2avi {
+	ogv2avi $1
 }
 export -f ogv2avi
 
