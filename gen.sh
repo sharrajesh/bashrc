@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # make sure user_raj is set in your bashrc
-export ext_dir=/home/$user_raj/Desktop/ext
+export dev_dir=/home/$user_raj/Desktop/dev
 export bashrc_dir=/home/$user_raj/Desktop/bashrc
 
 # export coopj=/home/$user_raj/Desktop/coopj/LDD_SOLUTIONS/SOLUTIONS
@@ -12,7 +12,7 @@ function rajeshhelp {
     echo help:
     echo
     echo printk   -- to echo 8 to printk and cat proc kmsg
-    echo cdext    -- to change directory to driver build  directory
+    echo cddev    -- to change directory to driver build  directory
     echo cdbrc    -- to change directory to bashrc dev directory
     echo refresh  -- to reload this bashfile
     echo module_helper  modname pathtomodule -- info for add-symbol-file
@@ -31,8 +31,8 @@ function printk {
     cat /proc/kmsg
 }
 
-function cdext {
-    cd /home/$user_raj/Desktop/ext/
+function cddev {
+    cd /home/$user_raj/Desktop/dev/
 }
 
 function cdbrc {
