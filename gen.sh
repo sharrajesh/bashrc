@@ -3,7 +3,6 @@
 # make sure user_raj is set in your bashrc
 export dev_dir=/home/$user_raj/Desktop/dev
 export bashrc_dir=/home/$user_raj/Desktop/bashrc
-export coopj=/home/$user_raj/Desktop/dev/LDD_SOLUTIONS_2010_05_26/s_02
 
 # export coopj=/home/$user_raj/Desktop/coopj/LDD_SOLUTIONS/SOLUTIONS
 # export PATH=$PATH:$coopj/s_02:$coopj/s_03:$coopj/s_04:$coopj/s_05:
@@ -24,13 +23,23 @@ function rajeshhelp {
     echo
 }
 
+#
+# Set environment to build coopj samples
+#
+function setenv_coopj {
+	export coopj=/home/$user_raj/Desktop/dev/LDD_SOLUTIONS_2010_05_26/s_02
+	export KROOT=$dev_dir/linux-2.6.32.15
+	cdldd
+}
+
 # to debug the script
 #    set -x
 #    set +x
 function printk {
     echo 8 > /proc/sys/kernel/printk
     reset
-    cat /proc/kmsg
+    #cat /proc/kmsg
+		tailf /var/log/messages
 }
 
 function cddev {
