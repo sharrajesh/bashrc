@@ -3,6 +3,7 @@
 # make sure user_raj is set in your bashrc
 export dev_dir=/home/$user_raj/Desktop/dev
 export bashrc_dir=/home/$user_raj/Desktop/bashrc
+export coopj=/home/$user_raj/Desktop/dev/LDD_SOLUTIONS_2010_05_26/s_02
 
 # export coopj=/home/$user_raj/Desktop/coopj/LDD_SOLUTIONS/SOLUTIONS
 # export PATH=$PATH:$coopj/s_02:$coopj/s_03:$coopj/s_04:$coopj/s_05:
@@ -14,6 +15,7 @@ function rajeshhelp {
     echo printk   -- to echo 8 to printk and cat proc kmsg
     echo cddev    -- to change directory to driver build  directory
     echo cdbrc    -- to change directory to bashrc dev directory
+    echo cdldd    -- to change directory to linux device driver samples
     echo refresh  -- to reload this bashfile
     echo module_helper  modname pathtomodule -- info for add-symbol-file
     echo diskusage -- to show the diskusage
@@ -37,6 +39,10 @@ function cddev {
 
 function cdbrc {
     cd $bashrc_dir
+}
+
+function cdldd {
+    cd $coopj
 }
 
 function refresh {
