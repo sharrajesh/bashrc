@@ -3,8 +3,8 @@
 # make sure user_raj is set in your bashrc
 export dev_dir=/home/$user_raj/Desktop/dev
 export bashrc_dir=/home/$user_raj/Desktop/bashrc
+export coopj=${dev_dir}/LDD_SOLUTIONS_2010_05_26
 
-# export coopj=/home/$user_raj/Desktop/coopj/LDD_SOLUTIONS/SOLUTIONS
 # export PATH=$PATH:$coopj/s_02:$coopj/s_03:$coopj/s_04:$coopj/s_05:
 
 function rajeshhelp {
