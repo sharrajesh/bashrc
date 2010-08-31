@@ -44,7 +44,7 @@ function printk {
 }
 
 function cddev {
-	cd /home/$user_raj/Desktop/dev/
+    cd /home/$user_raj/Desktop/dev/
 }
 
 function cdbrc {
