@@ -12,6 +12,7 @@ function rajeshhelp {
     echo help:
     echo
     echo printk   -- to echo 8 to printk and cat proc kmsg
+		echo mygitclean -- to clean all the files and folders but those starting with .git 
     echo cddev    -- to change directory to driver build  directory
     echo cdbrc    -- to change directory to bashrc dev directory
     echo cdldd    -- to change directory to linux device driver samples
@@ -160,10 +161,19 @@ function 3gp2avi {
 }
 export -f ogv2avi
 
-#
 # for every ogv file found invoke ogv2avi function on it
 function conv2avi {
 	rm *.ogv.avi
 	find ./ -name "*.ogv" -exec echo ogv2avi {} \; | bash
+}
+
+# to delete everything but .git folders and files
+function mygitclean {
+    if [ -d .git ]; then
+	    echo ".git directory found. Hence Cleaning..."
+			ls -a | grep -v .git | xargs rm -rf
+    else 
+	    echo " .git directory not found. Hence aborting."
+    fi 
 }
 
