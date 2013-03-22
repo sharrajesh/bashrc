@@ -9,7 +9,12 @@ export dev_dir=/home/$user_raj/Desktop/dev
 export coopj=$dev_dir/SOLUTIONS
 export bashrc_dir=$dev_dir/bashrc
 
+export NUM_PROCESSORS=`cat /proc/cpuinfo | grep  processor | wc -l`
+
 # export PATH=$PATH:$coopj/s_02:$coopj/s_03:$coopj/s_04:$coopj/s_05:
+
+#to build kernel
+#make -j$(($NUM_PROCESSORS+1))
 
 function rajeshhelp {
     echo
