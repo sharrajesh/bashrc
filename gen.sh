@@ -3,6 +3,8 @@
 #make sure user_raj and KROOT is set in your bashrc
 #export user_raj=rajesh
 #export KROOT=$dev_dir/linux-2.6.38
+#source ~/Desktop/dev/bashrc/gen.sh
+
 export dev_dir=/home/$user_raj/Desktop/dev
 export coopj=$dev_dir/SOLUTIONS
 export bashrc_dir=$dev_dir/bashrc

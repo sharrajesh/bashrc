@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# make sure user_raj is set in your bashrc
-# export user_raj=rajesh
+#make sure user_raj and KROOT is set in your bashrc
+#export user_raj=rajesh
+#export KROOT=$dev_dir/linux-2.6.38
 export dev_dir=/home/$user_raj/Desktop/dev
-export KROOT=$dev_dir/linux-2.6.38
 export coopj=$dev_dir/SOLUTIONS
 export bashrc_dir=$dev_dir/bashrc
 
