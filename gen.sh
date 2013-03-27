@@ -1,13 +1,19 @@
 #!/bin/sh
 
-#make sure user_raj and KROOT is set in your bashrc
+#make sure user_raj, dev_dir and KROOT is set in your bashrc
 #export user_raj=rajesh
+#export dev_dir=/home/$user_raj/Desktop/dev
 #export KROOT=$dev_dir/linux-2.6.38
-export dev_dir=/home/$user_raj/Desktop/dev
+
 export coopj=$dev_dir/SOLUTIONS
 export bashrc_dir=$dev_dir/bashrc
+export drivers_dir=$KROOT/drivers
+export include_dir=$KROOT/include/linux
 
 # export PATH=$PATH:$coopj/s_02:$coopj/s_03:$coopj/s_04:$coopj/s_05:
+
+#set number of processors
+export NUM_PROCESSORS=`cat /proc/cpuinfo | grep  processor | wc -l`
 
 function rajeshhelp {
     echo
