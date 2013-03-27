@@ -4,6 +4,7 @@
 #export user_raj=rajesh
 #export dev_dir=/home/$user_raj/Desktop/dev
 #export KROOT=$dev_dir/linux-2.6.38
+#source ~/Desktop/dev/bashrc/gen.sh
 
 export coopj=$dev_dir/SOLUTIONS
 export bashrc_dir=$dev_dir/bashrc
@@ -14,6 +15,9 @@ export include_dir=$KROOT/include/linux
 
 #set number of processors
 export NUM_PROCESSORS=`cat /proc/cpuinfo | grep  processor | wc -l`
+
+#to build kernel
+#make -j$(($NUM_PROCESSORS+1))
 
 function rajeshhelp {
     echo
